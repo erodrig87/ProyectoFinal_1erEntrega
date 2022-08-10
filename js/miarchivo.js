@@ -1,8 +1,8 @@
 // Mensaje de informacion
-alert(`Boton 'Crear Gasto', Ingresa gasto en Array de gastos.
+/*alert(`Boton 'Crear Gasto', Ingresa gasto en Array de gastos.
 Boton 'Mostrar Gastos', muestra gastos ingresados.
 Boton 'Mostrar Calculos', muestra gasto maximo, minimo y promedio total.
-Boton 'Reset Gastos', elimina gastos ingresados`);
+Boton 'Reset Gastos', elimina gastos ingresados`);*/
 
 //Def variables globales
 let gasto_total = 0;
