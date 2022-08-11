@@ -169,25 +169,6 @@ const filtrar = () => {
         alert(mensajeCategoria);
 
     } 
-
-    /*
-    let afirmativos = 0;
-    let mensajeCategoria = "";
-    if (arrayGastos.length > 0) {
-        let filterCategoria = prompt("ingresar categoria a filtrar");
-        mensajeCategoria = `Gastos realizados en la categoria: ${filterCategoria}\n`;
-        arrayGastos.forEach(gasto => {
-            if(gasto.boolCategoria(filterCategoria)){
-                mensajeCategoria += `Fecha: ${gasto.fecha} | Categoria: ${gasto.categoria} | Valor: ${gasto.valor.toFixed(2)}\n`;
-                afirmativos++;
-            }
-        })
-        if(afirmativos==0){mensajeCategoria = `No se encuentras Gastos realizados en la categoria: ${filterCategoria}\n`}
-        alert(mensajeCategoria);
-    } else {
-        mensajeCategoria += 'No se ingresaron gastos'
-        alert(mensajeCategoria);
-    }*/
 }
 
 
