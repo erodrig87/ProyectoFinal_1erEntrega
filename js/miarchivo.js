@@ -1,8 +1,10 @@
 // Mensaje de informacion
-/*alert(`Boton 'Crear Gasto', Ingresa gasto en Array de gastos.
+alert(`Se ingresan en automaticamente 9 gastos en 3 categorias diferentes para facilitar prueba de calculos.
+Boton 'Crear Gasto', Ingresa gasto en Array de gastos.
 Boton 'Mostrar Gastos', muestra gastos ingresados.
 Boton 'Mostrar Calculos', muestra gasto maximo, minimo y promedio total.
-Boton 'Reset Gastos', elimina gastos ingresados`);*/
+Boton 'Filtrar Categoria', solicita ingresar categoria a filtrar y muestra gastos.
+Boton 'Reset Gastos', elimina gastos ingresados`);
 
 //Def variables globales
 let gasto_total = 0;
@@ -22,7 +24,7 @@ class Gasto {
         this.remito = remito;
         this.pago = pago;
     }
-    boolCategoria = (check_categoria) => (this.categoria == check_categoria) ? true : false;
+    //boolCategoria = (check_categoria) => (this.categoria == check_categoria) ? true : false; Metodo devuelve bool segun valor categoria || no utilizado
 }
 // se ingresan automaticamente 9 gastos para poder utilizar funciones de calculo
 for(let i=0;i<3;i++)
@@ -78,7 +80,7 @@ const restarDias = (dias) => {
 const crearGasto = () => {
         fecha = new Date();    
         fecha = prompt("ingresar fecha de gasto", fecha.toLocaleDateString());
-        categoria = prompt("ingresar categoria de gasto");
+        categoria = prompt("ingresar categoria de gasto").toLocaleUpperCase();
         valor = parseFloat(prompt("ingresar valor de gasto"));
         remito = prompt("ingresar remito/comprobante de gasto","");
         pago = prompt("ingresar forma de pago de gasto","efectivo");
@@ -140,7 +142,7 @@ const mostrarCalculos = () => {
 
 // funcion que devuelve el Array de Gastos filtrado segun categoria
 
-function filtrarCategoria(categoriaFiltrada){
+const filtrarCategoria = (categoriaFiltrada) => {
     let arrayFiltrado = arrayGastos.filter(function (gasto) {
         return gasto.categoria == categoriaFiltrada;
       });
@@ -151,13 +153,18 @@ function filtrarCategoria(categoriaFiltrada){
 const filtrar = () => { 
     let mensajeCategoria = "";
     if (arrayGastos.length > 0) {
-        let categoriaFiltrada = prompt("ingresar categoria a filtrar");
+        let categoriaFiltrada = prompt("ingresar categoria a filtrar").toLocaleUpperCase();
         let arrayFiltrado = filtrarCategoria(categoriaFiltrada);
-        arrayFiltrado.forEach(gasto => {
+        if(arrayFiltrado.length!=0){
+            arrayFiltrado.forEach(gasto => {
                 mensajeCategoria += `Fecha: ${gasto.fecha} | Categoria: ${gasto.categoria} | Valor: ${gasto.valor.toFixed(2)}\n`;
         })
         alert(mensajeCategoria);
-    }else {
+        }else{
+            mensajeCategoria = "No hay gastos en la categoria ingresada";
+            alert(mensajeCategoria);
+        }
+        }else {
         mensajeCategoria += 'No se ingresaron gastos'
         alert(mensajeCategoria);
 
